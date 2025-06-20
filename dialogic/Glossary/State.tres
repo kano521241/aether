@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://3kftbykapxeh"]
+
+[ext_resource type="Script" uid="uid://c3oypxmmpscx4" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_ivsts"]
+
+[resource]
+script = ExtResource("1_ivsts")
+entries = {
+"魅力值": {
+"case_sensitive": true,
+"name": "魅力值",
+"text": "魅力值影响与智慧生物交谈时对方的态度，以及率领部队时的士气加成。",
+"title": "魅力值"
+},
+"魅魔": {
+"alternatives": [],
+"case_sensitive": true,
+"name": "魅魔",
+"text": "无关于外貌，直接作用于心灵的一种影响。
+拥有这种体质的人在以往都被冠以“魔”之名。",
+"title": "魅魔体质"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

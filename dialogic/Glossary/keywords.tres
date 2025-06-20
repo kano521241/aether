@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://b7wiynmtgjhwd"]
+
+[ext_resource type="Script" uid="uid://c3oypxmmpscx4" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_06gcs"]
+
+[resource]
+script = ExtResource("1_06gcs")
+entries = {
+"注视": {
+"case_sensitive": true,
+"name": "注视",
+"text": "一旦与感染者产生交集，就会被病毒所注视。
+在这之后，即便杜绝了所有的外界因素干扰，依旧会被病毒慢慢地侵蚀殆尽。",
+"title": "埃忒尔的注视"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

@@ -1,0 +1,135 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="埃忒尔战记"
+run/main_scene="uid://cqkctqoofr7lp"
+config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://Script/Class/Global.gd"
+CoreSystem="*res://addons/godot_core_system-main/source/core_system.gd"
+EventSystem="*res://Script/System/EventSystem.gd"
+
+[dialogic]
+
+directories/dch_directory={
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"变异者": "res://dialogic/character/变异者.dch",
+"莫苒苒": "res://dialogic/character/莫苒苒.dch",
+"逢炎": "res://dialogic/character/逢炎.dch"
+}
+directories/dtl_directory={
+"D0001": "res://dialogic/timeline/D0001.dtl",
+"D0002": "res://dialogic/timeline/D0002.dtl",
+"D0003": "res://dialogic/timeline/D0003.dtl",
+"删除存档": "res://dialogic/timeline/删除存档.dtl",
+"开头介绍": "res://dialogic/timeline/开头介绍.dtl"
+}
+glossary/default_case_sensitive=true
+variables={
+"1级变异者": {
+"异能量上限": 20,
+"当前异能量": 20,
+"当前生命值": 30,
+"攻击能力": 7,
+"生命值上限": 30,
+"闪避能力": 2,
+"防御能力": 0,
+"魅力": 0
+},
+"莫苒苒": {
+"异能量上限": 0,
+"当前异能量": 0,
+"当前生命值": 100,
+"攻击能力": 5,
+"生命值上限": 100,
+"闪避能力": 2,
+"防御能力": 2,
+"魅力": 0
+},
+"逢炎": {
+"异能量上限": 100,
+"当前异能量": 100,
+"当前生命值": 100,
+"攻击能力": 10,
+"生命值上限": 100,
+"闪避能力": 2,
+"防御能力": 2,
+"魅力": 0
+}
+}
+text/letter_speed=0.05
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={}
+layout/style_list=["res://dialogic/Styles/TextBox_style.tres", "res://dialogic/Styles/Novel_style.tres"]
+layout/default_style="res://dialogic/Styles/Novel_style.tres"
+extensions_folder="res://addons/dialogic_additions"
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+glossary/glossary_files=["res://dialogic/Glossary/State.tres", "res://dialogic/Glossary/keywords.tres"]
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/fastnode/plugin.cfg", "res://addons/godot_core_system-main/plugin.cfg")
+
+[godot_core_system]
+
+save_system/auto_save/max_saves=1
+save_system/auto_save/name_prefix="gamesave_"
+save_system/defaults/serialization_format="json"
+
+[gui]
+
+theme/custom_font="uid://dya44ufyelwj2"
+
+[input]
+
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+ui_click_left={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+ui_click_right={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqkctqoofr7lp"]
+
+[ext_resource type="Script" uid="uid://ce5qi0ypgroae" path="res://Script/Menu/Start_menu.gd" id="1_nyhul"]
+[ext_resource type="PackedScene" uid="uid://f6pwwsv4pqt4" path="res://Scenes/UI/界面选项.tscn" id="2_410kx"]
+[ext_resource type="Texture2D" uid="uid://dbhpsecr7yg6r" path="res://Sprite/UI/占星术UI/main_menu.png" id="2_nyhul"]
+
+[node name="开始界面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nyhul")
+
+[node name="背景" type="Sprite2D" parent="."]
+position = Vector2(958, 536)
+texture = ExtResource("2_nyhul")
+
+[node name="选项界面" type="GridContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -154.0
+offset_right = 200.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="开始游戏" parent="选项界面" instance=ExtResource("2_410kx")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "开始游戏"
+
+[node name="加载游戏" parent="选项界面" instance=ExtResource("2_410kx")]
+layout_mode = 2
+text = "加载游戏"
+
+[node name="退出游戏" parent="选项界面" instance=ExtResource("2_410kx")]
+layout_mode = 2
+text = "退出游戏"
+
+[connection signal="button_down" from="选项界面/开始游戏" to="选项界面/开始游戏" method="_on_button_down"]
+[connection signal="button_down" from="选项界面/加载游戏" to="选项界面/加载游戏" method="_on_button_down"]
+[connection signal="button_down" from="选项界面/退出游戏" to="选项界面/退出游戏" method="_on_button_down"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgf78te0cs34c"]
+
+[ext_resource type="Script" uid="uid://bsbdipqkmw77o" path="res://Script/Menu/Save_menu.gd" id="1_ospdm"]
+
+[node name="存档界面" type="Node"]
+script = ExtResource("1_ospdm")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

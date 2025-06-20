@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6pwwsv4pqt4"]
+
+[ext_resource type="Texture2D" uid="uid://bi1ouyv2d5dfj" path="res://Sprite/UI/Button/choice_idle_background.png" id="1_ch4vc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egcq4"]
+
+[node name="选项" type="Button"]
+custom_minimum_size = Vector2(400, 100)
+offset_right = 357.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_egcq4")
+text = "测试文本"
+flat = true
+text_overrun_behavior = 3
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(196.5, 52.5)
+scale = Vector2(0.309705, 1.94231)
+texture = ExtResource("1_ch4vc")

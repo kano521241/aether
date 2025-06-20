@@ -1,0 +1,271 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyg6hsxptnix4"]
+
+[ext_resource type="Script" uid="uid://fqv1y0vqr0rm" path="res://Script/Game/Battle.gd" id="1_183tr"]
+[ext_resource type="Script" uid="uid://cm4aifi38pkws" path="res://Script/Game/Monster.gd" id="1_btupe"]
+[ext_resource type="Script" uid="uid://ur1ivf33t4s4" path="res://Script/Game/player.gd" id="4_dfeis"]
+[ext_resource type="Texture2D" uid="uid://dkfnakfvil6fr" path="res://Sprite/Character/逢炎/逢炎头像.png" id="4_r01ke"]
+[ext_resource type="Texture2D" uid="uid://b5x1g2h622vyj" path="res://Sprite/UI/Heart/bg.png" id="5_pavnm"]
+[ext_resource type="Texture2D" uid="uid://dtjig5eb20eer" path="res://Sprite/UI/Heart/red.png" id="6_btupe"]
+[ext_resource type="FontFile" uid="uid://bcopdje1u0kt" path="res://Fonts/MapleMono-NF-Base.ttf" id="6_q254b"]
+[ext_resource type="Texture2D" uid="uid://brg3466505wkw" path="res://Sprite/UI/Heart/blue.png" id="7_dfeis"]
+[ext_resource type="Texture2D" uid="uid://bqtc4v68qt5dr" path="res://Sprite/Icon/图标-武士刀.png" id="7_pavnm"]
+[ext_resource type="Texture2D" uid="uid://doubbuh7rycl6" path="res://Sprite/Character/变异者/变异者普通男.png" id="8_btupe"]
+[ext_resource type="Script" uid="uid://cbyjnw63sn5h6" path="res://Script/Game/Player_contorl.gd" id="11_178xf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcdqa"]
+
+[sub_resource type="GDScript" id="GDScript_dufcu"]
+script/source = "extends Button
+
+
+
+
+func _on_button_down() -> void:
+	#Global.Trigger_dialogue(\"D0002\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_178xf"]
+
+[node name="主游戏界面" type="Node2D"]
+
+[node name="BattleHUD" type="CanvasLayer" parent="."]
+script = ExtResource("1_183tr")
+
+[node name="敌人" type="Panel" parent="BattleHUD"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+script = ExtResource("1_btupe")
+
+[node name="敌人图像" type="TextureRect" parent="BattleHUD/敌人"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -534.0
+offset_right = 487.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_btupe")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="敌人血量" type="Control" parent="BattleHUD/敌人"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -108.0
+offset_right = 370.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="敌人血量值" type="RichTextLabel" parent="BattleHUD/敌人/敌人血量"]
+modulate = Color(0.3139, 0.73, 0.320835, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 345.0
+offset_bottom = 108.0
+theme_override_fonts/normal_font = ExtResource("6_q254b")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "99999999"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="敌人血量值上限" type="RichTextLabel" parent="BattleHUD/敌人/敌人血量"]
+modulate = Color(1, 0.18, 0.18, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 395.0
+offset_right = 740.0
+offset_bottom = 108.0
+theme_override_fonts/normal_font = ExtResource("6_q254b")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "99999999"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="状态栏" type="PanelContainer" parent="BattleHUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -350.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="背景" type="TextureRect" parent="BattleHUD/状态栏"]
+layout_mode = 2
+stretch_mode = 6
+
+[node name="人物面板" type="HBoxContainer" parent="BattleHUD/状态栏"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="逢炎" type="TextureRect" parent="BattleHUD/状态栏/人物面板"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+script = ExtResource("4_dfeis")
+
+[node name="头像" type="Sprite2D" parent="BattleHUD/状态栏/人物面板/逢炎"]
+position = Vector2(150, 200)
+texture = ExtResource("4_r01ke")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleHUD/状态栏/人物面板/逢炎"]
+layout_mode = 0
+
+[node name="血条" type="TextureProgressBar" parent="BattleHUD/状态栏/人物面板/逢炎/VBoxContainer"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("5_pavnm")
+texture_progress = ExtResource("6_btupe")
+
+[node name="能量条" type="TextureProgressBar" parent="BattleHUD/状态栏/人物面板/逢炎/VBoxContainer"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+texture_under = ExtResource("5_pavnm")
+texture_progress = ExtResource("7_dfeis")
+
+[node name="辅助角色" type="TextureRect" parent="BattleHUD/状态栏/人物面板"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="头像" type="Sprite2D" parent="BattleHUD/状态栏/人物面板/辅助角色"]
+position = Vector2(150, 200)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleHUD/状态栏/人物面板/辅助角色"]
+layout_mode = 0
+
+[node name="血条" type="TextureProgressBar" parent="BattleHUD/状态栏/人物面板/辅助角色/VBoxContainer"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+texture_under = ExtResource("5_pavnm")
+texture_over = ExtResource("6_btupe")
+
+[node name="能量条" type="TextureProgressBar" parent="BattleHUD/状态栏/人物面板/辅助角色/VBoxContainer"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+texture_under = ExtResource("5_pavnm")
+texture_over = ExtResource("7_dfeis")
+
+[node name="行动点数" type="VBoxContainer" parent="BattleHUD"]
+offset_left = 1108.0
+offset_top = 733.0
+offset_right = 1219.0
+offset_bottom = 1079.0
+
+[node name="AP文本" type="RichTextLabel" parent="BattleHUD/行动点数"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_q254b")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "AP"
+fit_content = true
+scroll_active = false
+
+[node name="AP值" type="RichTextLabel" parent="BattleHUD/行动点数"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_q254b")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "99"
+fit_content = true
+scroll_active = false
+
+[node name="操作界面" type="Panel" parent="BattleHUD"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_bottom = -430.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="按钮列表" type="GridContainer" parent="BattleHUD/操作界面"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 404.0
+offset_bottom = 632.0
+theme_override_constants/h_separation = 23
+theme_override_constants/v_separation = 25
+columns = 4
+
+[node name="按钮-武士刀攻击" type="Button" parent="BattleHUD/操作界面/按钮列表"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rcdqa")
+expand_icon = true
+
+[node name="icon" type="TextureRect" parent="BattleHUD/操作界面/按钮列表/按钮-武士刀攻击"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_pavnm")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Timer" type="Timer" parent="BattleHUD"]
+
+[node name="Button" type="Button" parent="BattleHUD"]
+visible = false
+offset_left = 923.0
+offset_top = 122.0
+offset_right = 1081.0
+offset_bottom = 186.0
+script = SubResource("GDScript_dufcu")
+
+[node name="音效" type="AudioStreamPlayer2D" parent="BattleHUD"]
+position = Vector2(450, 125)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("11_178xf")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.4375, 0.5)
+texture = ExtResource("7_pavnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_178xf")
+
+[connection signal="button_down" from="BattleHUD/操作界面/按钮列表/按钮-武士刀攻击" to="BattleHUD/状态栏/人物面板/逢炎" method="_on_武士刀攻击"]
+[connection signal="button_down" from="BattleHUD/Button" to="BattleHUD/Button" method="_on_button_down"]

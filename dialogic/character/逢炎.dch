@@ -1,0 +1,40 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "Novel_style",
+"suffix": ""
+},
+&"default_portrait": "立绘/默认",
+&"description": "",
+&"display_name": "逢炎",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"立绘/头像": {
+"export_overrides": {
+"image": "\"res://Sprite/Character/逢炎/逢炎头像.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"立绘/默认": {
+"export_overrides": {
+"image": "\"res://Sprite/Character/逢炎/逢炎默认.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}
