@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dglfeh8yowt0v"]
+
+[ext_resource type="Texture2D" uid="uid://i77mdfhnw24l" path="res://Sprite/Character/逢炎/动画/standard/idle.png" id="1_7nqm3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxn8w"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8vmv"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlpr2"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyi4o"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fss2y"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtw4e"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqasb"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tkrf"]
+atlas = ExtResource("1_7nqm3")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxn8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8vmv")
+}],
+"loop": false,
+"name": &"Idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlpr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyi4o")
+}],
+"loop": true,
+"name": &"Idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fss2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtw4e")
+}],
+"loop": true,
+"name": &"Idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqasb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tkrf")
+}],
+"loop": true,
+"name": &"Idle_up",
+"speed": 5.0
+}]

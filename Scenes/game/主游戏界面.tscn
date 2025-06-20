@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyg6hsxptnix4"]
+[gd_scene load_steps=27 format=3 uid="uid://dyg6hsxptnix4"]
 
 [ext_resource type="Script" uid="uid://fqv1y0vqr0rm" path="res://Script/Game/Battle.gd" id="1_183tr"]
 [ext_resource type="Script" uid="uid://cm4aifi38pkws" path="res://Script/Game/Monster.gd" id="1_btupe"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bqtc4v68qt5dr" path="res://Sprite/Icon/图标-武士刀.png" id="7_pavnm"]
 [ext_resource type="Texture2D" uid="uid://doubbuh7rycl6" path="res://Sprite/Character/变异者/变异者普通男.png" id="8_btupe"]
 [ext_resource type="Script" uid="uid://cbyjnw63sn5h6" path="res://Script/Game/Player_contorl.gd" id="11_178xf"]
+[ext_resource type="Texture2D" uid="uid://i77mdfhnw24l" path="res://Sprite/Character/逢炎/动画/standard/idle.png" id="12_ouqcq"]
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://8pu5tmh1u1dh" path="res://Sprite/Character/逢炎/动画/Animation/Idle.tres" id="13_aod6m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcdqa"]
 
@@ -21,15 +23,120 @@ script/source = "extends Button
 
 
 func _on_button_down() -> void:
+	Global.trigger.emit(\"D0002\")
 	#Global.Trigger_dialogue(\"D0002\")
 	pass # Replace with function body.
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_178xf"]
 
+[sub_resource type="Animation" id="Animation_aod6m"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_une82"]
+resource_name = "Idle_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_a6atw"]
+resource_name = "Idle_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_jljqw"]
+resource_name = "Idle_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_xfqrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnlq2"]
+_data = {
+&"Idle_down": SubResource("Animation_aod6m"),
+&"Idle_left": SubResource("Animation_une82"),
+&"Idle_right": SubResource("Animation_a6atw"),
+&"Idle_up": SubResource("Animation_jljqw"),
+&"RESET": SubResource("Animation_xfqrj")
+}
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_aod6m"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xfqrj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jljqw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jljqw"]
+states/Idle/node = ExtResource("13_aod6m")
+states/Idle/position = Vector2(340, 100)
+states/Run/node = SubResource("AnimationNodeBlendSpace2D_aod6m")
+states/Run/position = Vector2(374, 172)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xfqrj"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_jljqw")]
+
 [node name="主游戏界面" type="Node2D"]
 
 [node name="BattleHUD" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("1_183tr")
 
 [node name="敌人" type="Panel" parent="BattleHUD"]
@@ -242,7 +349,6 @@ stretch_mode = 3
 [node name="Timer" type="Timer" parent="BattleHUD"]
 
 [node name="Button" type="Button" parent="BattleHUD"]
-visible = false
 offset_left = 923.0
 offset_top = 122.0
 offset_right = 1081.0
@@ -253,19 +359,33 @@ script = SubResource("GDScript_dufcu")
 position = Vector2(450, 125)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 
-[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+[node name="PLAYER" type="CharacterBody2D" parent="."]
 motion_mode = 1
 slide_on_ceiling = false
+platform_on_leave = 2
 script = ExtResource("11_178xf")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(0.4375, 0.5)
-texture = ExtResource("7_pavnm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLAYER"]
 shape = SubResource("CircleShape2D_178xf")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="PLAYER"]
+texture = ExtResource("12_ouqcq")
+hframes = 2
+vframes = 4
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PLAYER"]
+libraries = {
+&"": SubResource("AnimationLibrary_vnlq2")
+}
+autoplay = "Idle_down"
+
+[node name="AnimationTree" type="AnimationTree" parent="PLAYER"]
+tree_root = SubResource("AnimationNodeStateMachine_jljqw")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(-0.0023585, 1)
+parameters/Run/blend_position = Vector2(-0.00707549, 0.975369)
 
 [connection signal="button_down" from="BattleHUD/操作界面/按钮列表/按钮-武士刀攻击" to="BattleHUD/状态栏/人物面板/逢炎" method="_on_武士刀攻击"]
 [connection signal="button_down" from="BattleHUD/Button" to="BattleHUD/Button" method="_on_button_down"]

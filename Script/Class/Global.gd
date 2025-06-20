@@ -1,30 +1,23 @@
 extends Node
-##全局变量
+##全局
 
-#@export var modern_save:Save##当前读取的存档
-#@export var 暴击系数:float = 0.03
-#@export var 闪避系数:float = 0.05
-@onready var save_manager : CoreSystem.SaveManager =  CoreSystem.save_manager
+@export var GameDate:Dictionary
+
+@export var level_max = 99 ##等级上限
+@export var attribute_max = 999 ##属性上限
+
 @export var player :Character
 
-func _ready() -> void:
-	player = Character.new()
-	#player._ready()
-	save_manager.register_saveable_node(self)  ##似乎只能注册场景树下的节点，player会找不到路径
-	
-func save() -> Dictionary:
-	# 返回一个包含要保存状态的字典,把所有要保存的都存进去
-	return {
-		"玩家力量": player.力量,
-	}
 
-func load_data(data: Dictionary) -> void:
-	# 从字典恢复状态
-	player.data = data.get("玩家力量", player.data)
+signal trigger(index:String) ##触发剧情
+
+
+
+func _ready() -> void:
+	trigger.connect(Trigger_dialogue)
+	pass
 	
-	# Player.position.x = data.get("position_x", 0.0)
-	# Player.position.y = data.get("position_y", 0.0)
-	# inventory.load_items(data.get("collected_items", []))
+
 # 判断是否暴击成功
 #func calculate_暴击(character:Character) -> bool :
 	#if not character.state.has("暴击率") or not character.state.has("敏捷"):
@@ -55,15 +48,17 @@ func load_data(data: Dictionary) -> void:
 		#return true
 	#else :
 		#return false
-
+		
+		
 # 触发对话
-func Trigger_dialogue(对话内容:String) ->void:
-	if 对话内容 == null :
+func Trigger_dialogue(index:String) ->void:
+	if index == null :
 		return 
 	else :
-		Dialogic.start(对话内容)
+		Dialogic.start(index)
 		
-		
+
+	
 func get_dialogic_variables(var_name:String) ->float:
 	var v = $Node.state[var_name]
 	if v == null :

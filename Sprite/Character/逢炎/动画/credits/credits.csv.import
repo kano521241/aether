@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cp345jcrfsfxm"
+
+[deps]
+
+files=["res://Sprite/Character/逢炎/动画/credits/credits.notes.translation", "res://Sprite/Character/逢炎/动画/credits/credits.authors.translation", "res://Sprite/Character/逢炎/动画/credits/credits.licenses.translation", "res://Sprite/Character/逢炎/动画/credits/credits.urls.translation"]
+
+source_file="res://Sprite/Character/逢炎/动画/credits/credits.csv"
+dest_files=["res://Sprite/Character/逢炎/动画/credits/credits.notes.translation", "res://Sprite/Character/逢炎/动画/credits/credits.authors.translation", "res://Sprite/Character/逢炎/动画/credits/credits.licenses.translation", "res://Sprite/Character/逢炎/动画/credits/credits.urls.translation"]
+
+[params]
+
+compress=true
+delimiter=0
