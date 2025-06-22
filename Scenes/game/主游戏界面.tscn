@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fqv1y0vqr0rm" path="res://Script/Game/Battle.gd" id="1_183tr"]
 [ext_resource type="Script" uid="uid://cm4aifi38pkws" path="res://Script/Game/Monster.gd" id="1_btupe"]
 [ext_resource type="Script" uid="uid://ur1ivf33t4s4" path="res://Script/Game/player.gd" id="4_dfeis"]
-[ext_resource type="Texture2D" uid="uid://dkfnakfvil6fr" path="res://Sprite/Character/逢炎/逢炎头像.png" id="4_r01ke"]
+[ext_resource type="Texture2D" uid="uid://dkfnakfvil6fr" path="res://Sprite/Character/逢炎/图片/逢炎头像.png" id="4_r01ke"]
 [ext_resource type="Texture2D" uid="uid://b5x1g2h622vyj" path="res://Sprite/UI/Heart/bg.png" id="5_pavnm"]
 [ext_resource type="Texture2D" uid="uid://dtjig5eb20eer" path="res://Sprite/UI/Heart/red.png" id="6_btupe"]
 [ext_resource type="FontFile" uid="uid://bcopdje1u0kt" path="res://Fonts/MapleMono-NF-Base.ttf" id="6_q254b"]

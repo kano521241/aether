@@ -7,7 +7,7 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "Novel_style",
+"style": "TextBox_style",
 "suffix": ""
 },
 &"default_portrait": "立绘/默认",
@@ -19,7 +19,7 @@
 &"portraits": {
 "立绘/头像": {
 "export_overrides": {
-"image": "\"res://Sprite/Character/逢炎/逢炎头像.png\""
+"image": "\"res://Sprite/Character/逢炎/图片/黄.jpeg\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

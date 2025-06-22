@@ -1,5 +1,5 @@
 [background arg="res://Sprite/scenes/背景/宇宙.png" fade="0.0"]
-没有人知道灾难的源头，但是无论如何它都已经发生了。
+逢炎 (立绘/头像): 没有人知道灾难的源头，但是无论如何它都已经发生了。
 人类在这颗星球上生活了很久，其中见到过太多了不起的生命，但即便是百万年前称霸星球的龙类，也做不到仅凭注视就同化其他生命。
 人类对此无福享受。
 [background arg="res://Sprite/scenes/背景/丧尸出现.png" fade="1.5" transition="Simple Fade"]

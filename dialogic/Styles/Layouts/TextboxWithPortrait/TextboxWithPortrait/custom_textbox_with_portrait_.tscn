@@ -1,19 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyoi2v58w3dvc"]
+[gd_scene load_steps=7 format=3 uid="uid://ch665hfftkcln"]
 
 [ext_resource type="Script" uid="uid://rit1053fy2ce" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
-[ext_resource type="Script" uid="uid://bjaagjy2mscsm" path="res://dialogic/Styles/Layouts/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
-[ext_resource type="Texture2D" uid="uid://b2maisbocpnnt" path="res://Sprite/UI/Frame/Frame_Kit_Atlas.png" id="2_ms3v6"]
+[ext_resource type="Script" uid="uid://r27cdjdngqsc" path="res://dialogic/Styles/Layouts/TextboxWithPortrait/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
 [ext_resource type="Script" uid="uid://ck4ne3biuamub" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
 [ext_resource type="Script" uid="uid://ccpb2jta3qprc" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
 [ext_resource type="Script" uid="uid://ikga4qotv2ds" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
-skew = Vector2(0.073, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
 layout_mode = 3
@@ -59,15 +53,6 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 15
 
-[node name="Sprite2D" type="Sprite2D" parent="Anchor/Panel/HBox"]
-visible = false
-position = Vector2(47.5, 71)
-scale = Vector2(0.404297, 0.492187)
-texture = ExtResource("2_ms3v6")
-hframes = 4
-vframes = 4
-frame = 15
-
 [node name="PortraitPanel" type="Panel" parent="Anchor/Panel/HBox"]
 unique_name_in_owner = true
 clip_children = 1
@@ -97,10 +82,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 21.0
-offset_right = -10.0
-offset_bottom = -12.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
