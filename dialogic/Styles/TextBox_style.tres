@@ -32,12 +32,14 @@ overrides = {}
 script = ExtResource("2_ay6jb")
 scene = ExtResource("5_hgky3")
 overrides = {
+"box_modulate_custom_color": "Color(0.0933838, 0.0993347, 0.117188, 1)",
+"box_modulate_global_color": "false",
 "box_size": "Vector2(1200, 250)",
 "custom_bold_font": "\"MapleMono-NF-Base.ttf\"",
 "custom_bold_italic_font": "\"MapleMono-NF-Base.ttf\"",
 "custom_italic_font": "\"MapleMono-NF-Base.ttf\"",
 "custom_normal_font": "\"res://Fonts/MapleMono-NF-Base.ttf\"",
-"portrait_stretch_factor": "0.25",
+"portrait_stretch_factor": "0.2",
 "text_custom_size": "20.0",
 "text_use_global_size": "false",
 "use_global_fonts": "false"

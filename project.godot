@@ -20,7 +20,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CoreSystem="*res://addons/godot_core_system-main/source/core_system.gd"
 Global="*res://Script/Class/Global.gd"
 EventSystem="*res://Script/System/EventSystem.gd"
-UiSystem="*res://Script/System/UISystem.gd"
+UISystem="*res://Script/System/UISystem.gd"
 
 [dialogic]
 

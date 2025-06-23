@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dyg6hsxptnix4"]
+[gd_scene load_steps=28 format=3 uid="uid://dyg6hsxptnix4"]
 
 [ext_resource type="Script" uid="uid://fqv1y0vqr0rm" path="res://Script/Game/Battle.gd" id="1_183tr"]
 [ext_resource type="Script" uid="uid://cm4aifi38pkws" path="res://Script/Game/Monster.gd" id="1_btupe"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cbyjnw63sn5h6" path="res://Script/Game/Player_contorl.gd" id="11_178xf"]
 [ext_resource type="Texture2D" uid="uid://i77mdfhnw24l" path="res://Sprite/Character/逢炎/动画/standard/idle.png" id="12_ouqcq"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://8pu5tmh1u1dh" path="res://Sprite/Character/逢炎/动画/Animation/Idle.tres" id="13_aod6m"]
+[ext_resource type="Script" uid="uid://d2exq8bo7iv1y" path="res://Script/Character/Character.gd" id="14_xfqrj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcdqa"]
 
@@ -386,6 +387,9 @@ tree_root = SubResource("AnimationNodeStateMachine_jljqw")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.0023585, 1)
 parameters/Run/blend_position = Vector2(-0.00707549, 0.975369)
+
+[node name="Node" type="Node2D" parent="."]
+script = ExtResource("14_xfqrj")
 
 [connection signal="button_down" from="BattleHUD/操作界面/按钮列表/按钮-武士刀攻击" to="BattleHUD/状态栏/人物面板/逢炎" method="_on_武士刀攻击"]
 [connection signal="button_down" from="BattleHUD/Button" to="BattleHUD/Button" method="_on_button_down"]
