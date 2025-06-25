@@ -2,10 +2,6 @@ extends Node
 ##全局
 
 @export var GameDate:Dictionary
-
-@export var level_max = 99 ##等级上限
-@export var attribute_max = 999 ##属性上限
-
 @export var player :Character
 
 
@@ -50,16 +46,15 @@ func _ready() -> void:
 		#return false
 		
 		
-# 触发对话
+## 触发对话
 func Trigger_dialogue(index:String) ->void:
 	if index == null :
 		return 
 	else :
 		Dialogic.start(index)
 		
-
-	
-func get_dialogic_variables(var_name:String) ->float:
+## 获取变量
+func get_dialogic_variables(var_name:String):
 	var v = $Node.state[var_name]
 	if v == null :
 		return 0	

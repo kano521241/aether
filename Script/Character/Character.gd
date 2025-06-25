@@ -1,35 +1,33 @@
 # 7. 角色类整合所有模块
 # Character.gd
-extends Node2D
+extends Node
 
 class_name Character
 
 ## 属性
-var stats: Character_stats
+@export var stats: Character_stats
 ## 被动技能
-var passive_skills: Array[PassiveSkill] = []
+@export var passive_skills: Array[PassiveSkill] = []
 ## 主动技能
-var active_skills: Array[ActiveSkill] = []
+@export var active_skills: Array[ActiveSkill] = []
 ## 装备
-var equipment_manager: EquipmentManager
+@export var equipment_manager: EquipmentManager
 ## 天赋
-var talent_manager: TalentManager
+@export var talent_manager: TalentManager
 
 func _ready() -> void:
+	#region 初始化逻辑
 	stats = Character_stats.new()
-	
 	equipment_manager = EquipmentManager.new()
-	add_child(equipment_manager)
-	
 	talent_manager = TalentManager.new()
-	
 	# 初始化被动技能
 	_init_passive_skills()
-	
 	# 初始化主动技能
 	_init_active_skills()
+	#endregion
+	#region 连接信号
 	
-	# 连接信号
+	#endregion
 	# equipment_manager.connect("equipment_changed", self, "_on_equipment_changed")
 	# talent_manager.connect("talent_unlocked", self, "_on_talent_unlocked")
 	# talent_manager.connect("talent_upgraded", self, "_on_talent_upgraded")
@@ -50,10 +48,6 @@ func _on_talent_unlocked(talent) -> void:
 	# 应用天赋效果
 	talent.apply_effect(stats)
 
-func _on_talent_upgraded(talent, level) -> void:
-	# 更新天赋效果
-	talent.apply_effect(stats)
-
 func _update_stats_from_equipment() -> void:
 	# 从装备管理器获取加成并更新属性
 	stats.set_stat("attack", stats.get_stat("attack_base") + equipment_manager.get_total_bonus("attack"))
@@ -66,3 +60,18 @@ func use_skill(skill_index: int) -> void:
 		return
 		
 	active_skills[skill_index].cast(self)
+	
+## 获取所有天赋的加成，并应用天赋效果
+func get_talent_bonus() ->void :
+	for talent in talent_manager.talent_slots:
+		stats.add_bonus(talent.stat_type,talent.additive_bonus,"addtive","talent")
+		stats.add_bonus(talent.stat_type,talent.multiplicative_bonus,"multiplicative","talent")
+	pass
+func _on_button_down() -> void:
+	var resource_manager = CoreSystem.resource_manager
+	var t001 = resource_manager.get_cached_resource("res://Resource/Talent/T001.tres")
+	talent_manager.add_talent(t001)
+	stats.init_bonus_dicts() ##在计算加成前，先清空加成区
+	get_talent_bonus()
+	var attack = stats.get_stat("attack")
+	print("最终攻击="+str(attack))

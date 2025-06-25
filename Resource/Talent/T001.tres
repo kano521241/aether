@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Talent" load_steps=2 format=3 uid="uid://c4x616to1mkfy"]
+
+[ext_resource type="Script" uid="uid://6cjh0to25rcs" path="res://Script/Character/Talent.gd" id="1_ljajm"]
+
+[resource]
+script = ExtResource("1_ljajm")
+talent_name = "天赋名称"
+talent_index = "天赋编号"
+description = "天赋描述"
+required_points = 1
+required_talents = Array[ExtResource("1_ljajm")]([null])
+stat_type = "attack"
+additive_bonus = 0.0
+multiplicative_bonus = 2.0
+metadata/_custom_type_script = "uid://6cjh0to25rcs"
