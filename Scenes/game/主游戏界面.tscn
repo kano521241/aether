@@ -142,6 +142,7 @@ base_attack = 10
 base_defense = 5
 base_speed = 1.0
 current_health = 100
+current_bonus = {}
 additive_bonuses = {
 "attack": 0,
 "defense": 0,

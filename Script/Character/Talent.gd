@@ -6,14 +6,14 @@ class_name Talent
 
 @export_group("Main|主要")
 @export var talent_name: String = "天赋名称"
-@export var talent_index:String = "天赋编号"
+#@export var talent_index:String = "天赋编号"
 @export var description: String = "天赋描述"
 
 @export_group("Required|所需条件")
 @export var required_points : int = 1
 @export var required_talents: Array[Talent] = []  # 必须解锁的前置天赋
 
-# 效果配置（编辑器可配，根据需求扩展）
+# 效果配置（编辑器可配，根据需求扩展，后期应改为Effect类的数组形式，实现一个天赋加成多个属性）
 @export_group("Effect|效果")
 @export var stat_type: String = "attack"  # 要修改的属性类型（health/attack等）
 @export var additive_bonus: float = 0.0  # 加法加成

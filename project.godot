@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CoreSystem="*res://addons/godot_core_system-main/source/core_system.gd"
-Global="*res://Script/Class/Global.gd"
+Global="*res://Script/System/Global.gd"
 EventSystem="*res://Script/System/EventSystem.gd"
 UISystem="*res://Script/System/UISystem.gd"
 

@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_ljajm")
-talent_name = "天赋名称"
+talent_name = "强攻1级"
 talent_index = "天赋编号"
 description = "天赋描述"
 required_points = 1
 required_talents = Array[ExtResource("1_ljajm")]([null])
 stat_type = "attack"
-additive_bonus = 0.0
-multiplicative_bonus = 2.0
+additive_bonus = 10.0
+multiplicative_bonus = 3.0
 metadata/_custom_type_script = "uid://6cjh0to25rcs"
