@@ -15,7 +15,11 @@ class_name Occupation
 
 # 根据熟练度划分等级
 func get_rank() -> String:
-	if proficiency <= 500:
+	if proficiency < 0:
+		return "恐怖"
+	elif proficiency == 0:
+		return "无知"
+	elif proficiency <= 500:
 		return "新手"
 	elif proficiency <= 1000:
 		return "熟手"
