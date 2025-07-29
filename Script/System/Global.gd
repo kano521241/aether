@@ -4,6 +4,20 @@ extends Node
 @export var GameDate:Dictionary
 @export var player :Character
 
+enum Body {
+	HEAD, # 头部
+	BODY, # 身体
+	LEFT_HAND, # 左手
+	RIGHT_HAND, # 右手
+	LEGS, # 腿部
+}
+enum Stat {
+	ATTACK, # 攻击力
+	DEFENSE, # 防御力
+	HEALTH, # 生命值
+	MAX_HEALTH, # 最大生命值
+	SPEED    # 速度
+}
 
 signal trigger(index:String) ##触发剧情
 
