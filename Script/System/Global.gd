@@ -2,22 +2,7 @@ extends Node
 ##全局
 
 @export var GameDate:Dictionary
-@export var player :Character
-
-enum Body {
-	HEAD, # 头部
-	BODY, # 身体
-	LEFT_HAND, # 左手
-	RIGHT_HAND, # 右手
-	LEGS, # 腿部
-}
-enum Stat {
-	ATTACK, # 攻击力
-	DEFENSE, # 防御力
-	HEALTH, # 生命值
-	MAX_HEALTH, # 最大生命值
-	SPEED    # 速度
-}
+@export var team : TeamManager = TeamManager.new()
 
 signal trigger(index:String) ##触发剧情
 
@@ -65,6 +50,7 @@ func Trigger_dialogue(index:String) ->void:
 	if index == null :
 		return 
 	else :
+		## emit_signal("对话模式",true)
 		Dialogic.start(index)
 		
 ## 获取变量

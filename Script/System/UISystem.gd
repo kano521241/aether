@@ -7,3 +7,4 @@ extends Node
 @onready var G3
 
 signal ui_change
+signal stat_update(character:Character)

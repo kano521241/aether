@@ -4,29 +4,20 @@ extends Resource
 
 class_name Equipment
 
+enum EQUIPMENT_TYPE { WEAPON, ARMOR, HELMET, BOOTS, ACCESSORY }
 
 ## 佩戴装备
 signal equipped
 ## 卸除装备
 signal unequipped
 
-# 装备部位
-var bodyPart: Global.Body
+var type: int = EQUIPMENT_TYPE.WEAPON
 var name: String = "装备名称"
 var description: String = "装备描述"
 var attack_bonus: int = 0
 var defense_bonus: int = 0
 var health_bonus: int = 0
 var speed_bonus: float = 0.0
-
-var bonus: Dictionary = {
-							Global.Stat.ATTACK: 0,
-							Global.Stat.DEFENSE: 0,
-							Global.Stat.HEALTH: 0,
-							Global.Stat.MAX_HEALTH: 0,
-							Global.Stat.SPEED: 0
-						}
-
 
 func equip_to(host_stats: Character_stats) -> void:
 	host_stats.set_stat("attack", host_stats.get_stat("attack") + attack_bonus)

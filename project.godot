@@ -21,22 +21,12 @@ CoreSystem="*res://addons/godot_core_system-main/source/core_system.gd"
 Global="*res://Script/System/Global.gd"
 EventSystem="*res://Script/System/EventSystem.gd"
 UISystem="*res://Script/System/UISystem.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
-"变异者": "res://dialogic/character/变异者.dch",
-"莫苒苒": "res://dialogic/character/莫苒苒.dch",
-"逢炎": "res://dialogic/character/逢炎.dch"
-}
-directories/dtl_directory={
-"D0001": "res://dialogic/timeline/D0001.dtl",
-"D0002": "res://dialogic/timeline/D0002.dtl",
-"D0003": "res://dialogic/timeline/D0003.dtl",
-"删除存档": "res://dialogic/timeline/删除存档.dtl",
-"开头介绍": "res://dialogic/timeline/开头介绍.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 glossary/default_case_sensitive=true
 variables={
 "1级变异者": {
@@ -80,7 +70,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 audio/channel_defaults={}
 layout/style_list=["res://dialogic/Styles/TextBox_style.tres", "res://dialogic/Styles/Novel_style.tres"]
-layout/default_style="res://dialogic/Styles/TextBox_style.tres"
+layout/default_style="res://dialogic/Styles/Novel_style.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -98,10 +88,12 @@ glossary/glossary_files=["res://dialogic/Glossary/State.tres", "res://dialogic/G
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/fastnode/plugin.cfg", "res://addons/godot_core_system-main/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/fastnode/plugin.cfg", "res://addons/godot_core_system-main/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [godot_core_system]
 
@@ -154,3 +146,23 @@ down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+attack={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_navigation/layer_1="地面"
+
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
+2d/default_linear_damp=0.0
+2d/default_angular_damp=0.0
+common/physics_interpolation=true
+
+[rendering]
+
+viewport/hdr_2d=true
